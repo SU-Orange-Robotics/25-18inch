@@ -1,7 +1,7 @@
 /*----------------------------------------------------------------------------*/
 /*                                                                            */
 /*    Module:       main.cpp                                                  */
-/*    Author:       davet                                                     */
+/*    Author:       Andrew Tedesco                                            */
 /*    Created:      1/24/2025, 5:27:31 PM                                     */
 /*    Description:  V5 project                                                */
 /*                                                                            */
@@ -72,6 +72,11 @@ void usercontrol(void) {
 
     // 2 stick arcade
     drive.arcadeDrive(Controller1.Axis3.position(), Controller1.Axis1.position());
+
+
+    Controller1.ButtonX.pressed([](){
+      
+    });
 
 
     // main intake and lift control
