@@ -9,10 +9,10 @@ extern competition Competition;
 // Drive Motors
 extern motor LeftMotorA;
 extern motor LeftMotorB;
-//extern motor LeftMotorC;
+extern motor LeftMotorC;
 extern motor RightMotorA;
 extern motor RightMotorB;
-//extern motor RightMotorC;
+extern motor RightMotorC;
 
 // other motors
 extern motor Intake;

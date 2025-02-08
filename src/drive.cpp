@@ -52,20 +52,20 @@ void Drive::toggleInvertDrive() {
 void Drive::leftDrive(double pow) {
     LeftMotorA.spin(directionType::fwd, pow, velocityUnits::pct);
     LeftMotorB.spin(directionType::fwd, pow, velocityUnits::pct);
-    //LeftMotorC.spin(directionType::fwd, pow, velocityUnits::pct);
+    LeftMotorC.spin(directionType::fwd, pow, velocityUnits::pct);
 }
 
 void Drive::rightDrive(double pow) {
     RightMotorA.spin(directionType::fwd, pow, velocityUnits::pct);
     RightMotorB.spin(directionType::fwd, pow, velocityUnits::pct);
-    //RightMotorC.spin(directionType::fwd, pow, velocityUnits::pct);
+    RightMotorC.spin(directionType::fwd, pow, velocityUnits::pct);
 }
 
 void Drive::stop() {
     LeftMotorA.stop();
     LeftMotorB.stop();
-    //LeftMotorC.stop();
+    LeftMotorC.stop();
     RightMotorA.stop();
     RightMotorB.stop();
-    //RightMotorC.stop();
+    RightMotorC.stop();
 }

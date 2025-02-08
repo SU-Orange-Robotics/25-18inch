@@ -10,6 +10,7 @@
 #include "vex.h"
 #include "drive.h"
 #include "intakeLift.h"
+#include "mogoMech.h"
 #include "robot-config.h"
 
 using namespace vex;
@@ -28,6 +29,16 @@ void pre_auton(void) {
 
   // All activities that occur before the competition starts
   // Example: clearing encoders, setting servo positions, ...
+
+  MogoMech.setStopping(brakeType::hold);
+
+  LeftMotorA.setStopping(brakeType::brake);
+  LeftMotorB.setStopping(brakeType::brake);
+  LeftMotorC.setStopping(brakeType::brake);
+
+  RightMotorB.setStopping(brakeType::brake);
+  RightMotorA.setStopping(brakeType::brake);
+  RightMotorC.setStopping(brakeType::brake);
 }
 
 /*---------------------------------------------------------------------------*/
@@ -75,7 +86,33 @@ void usercontrol(void) {
 
 
     Controller1.ButtonX.pressed([](){
-      
+      drive.toggleInvertDrive();
+    });
+
+
+    // mogomech stuff
+    Controller1.ButtonR1.pressed([](){
+      mogoUp();
+    });
+
+    Controller1.ButtonR1.released([](){
+      mogoStop();
+    });
+
+    Controller1.ButtonLeft.pressed([](){
+      mogoDown();
+    });
+
+    Controller1.ButtonLeft.released([](){
+      mogoStop();
+    });
+
+    Controller1.ButtonRight.pressed([](){
+      mogoUp();
+    });
+
+    Controller1.ButtonRight.released([](){
+      mogoStop();
     });
 
 
