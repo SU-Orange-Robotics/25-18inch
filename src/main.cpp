@@ -56,11 +56,13 @@ void autonomous(void) {
   // Insert autonomous user code here.
   // ..........................................................................
 
-  // best auton i've ever written. So efficent, just one line!
-  drive.driveForward(60, 0.5);
+  //drive.driveForward(70, 500);
+  drive.arcadeDrive(70, 0);
+  wait(500, timeUnits::msec);
+  drive.stop();
 
 
-}
+} 
 
 /*---------------------------------------------------------------------------*/
 /*                                                                           */
@@ -88,11 +90,6 @@ void usercontrol(void) {
 
     // 2 stick arcade
     drive.arcadeDrive(Controller1.Axis3.position(), Controller1.Axis1.position());
-
-
-    Controller1.ButtonX.released([](){
-      drive.toggleInvertDrive();
-    });
 
 
     // mogomech stuff
@@ -168,6 +165,10 @@ void usercontrol(void) {
       intakeStop();
     });
 
+
+    Controller1.ButtonX.pressed([](){
+      drive.toggleInvertDrive();
+    });
 
 
     wait(20, msec); // Sleep the task for a short amount of time to

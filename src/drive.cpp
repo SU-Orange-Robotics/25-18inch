@@ -49,14 +49,13 @@ void Drive::toggleInvertDrive() {
     invertDrive = !invertDrive;
 }
 
-void Drive::driveForward(double pow, double time) {
-    LeftMotorA.spinFor(directionType::fwd, time, timeUnits::sec, pow, velocityUnits::pct);
-    LeftMotorB.spinFor(directionType::fwd, time, timeUnits::sec, pow, velocityUnits::pct);
-    LeftMotorC.spinFor(directionType::fwd, time, timeUnits::sec, pow, velocityUnits::pct);
+void Drive::driveForward(double pow, double time) { 
+    timer fwdTime;
 
-    RightMotorA.spinFor(directionType::fwd, time, timeUnits::sec, pow, velocityUnits::pct);
-    RightMotorB.spinFor(directionType::fwd, time, timeUnits::sec, pow, velocityUnits::pct);
-    RightMotorC.spinFor(directionType::fwd, time, timeUnits::sec, pow, velocityUnits::pct);
+    leftDrive(pow);
+    rightDrive(pow);
+
+    fwdTime.event([](){drive.stop();}, time);
 }
 
 void Drive::leftDrive(double pow) {
