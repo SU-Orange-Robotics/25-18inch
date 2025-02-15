@@ -55,6 +55,11 @@ void autonomous(void) {
   // ..........................................................................
   // Insert autonomous user code here.
   // ..........................................................................
+
+  // best auton i've ever written. So efficent, just one line!
+  drive.driveForward(60, 0.5);
+
+
 }
 
 /*---------------------------------------------------------------------------*/
@@ -85,7 +90,7 @@ void usercontrol(void) {
     drive.arcadeDrive(Controller1.Axis3.position(), Controller1.Axis1.position());
 
 
-    Controller1.ButtonX.pressed([](){
+    Controller1.ButtonX.released([](){
       drive.toggleInvertDrive();
     });
 

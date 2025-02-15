@@ -27,6 +27,8 @@ class Drive {
 
         void toggleInvertDrive();
 
+        void driveForward(double pow, double time);
+
         void leftDrive(double pow);
         void rightDrive(double pow);
 
